@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "name" : "Black Coffee",
+      "price" : 22,
+      "description": "A very important drink for programmers"
+    },
+    {
+      "name" : "Black Coffee 2",
+      "price" : 22,
+      "description": "A very important drink for programmers"
+    },
+    {
+      "name" : "Black Coffee 3",
+      "price" : 22,
+      "description": "A very important drink for programmers"
+    }
+  ]
+}
