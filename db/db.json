@@ -3,17 +3,20 @@
     {
       "name" : "Black Coffee",
       "price" : 22,
-      "description": "A very important drink for programmers"
+      "description": "A very important drink for programmers",
+      "id": "000"
     },
     {
       "name" : "Black Coffee 2",
       "price" : 22,
-      "description": "A very important drink for programmers"
+      "description": "A very important drink for programmers",
+      "id": "001"
     },
     {
       "name" : "Black Coffee 3",
       "price" : 22,
-      "description": "A very important drink for programmers"
+      "description": "A very important drink for programmers",
+      "id": "002"
     }
   ]
 }
