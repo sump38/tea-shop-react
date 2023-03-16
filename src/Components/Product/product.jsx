@@ -1,7 +1,7 @@
 import { useCart } from "../../context/cartContext";
 
 const Product = ({productData}) => {
-  const {name, price, description} = productData;
+  const {name, price, description, id} = productData;
   const { amount, addProduct, removeProduct } = useCart();
 
   return (
@@ -15,10 +15,8 @@ const Product = ({productData}) => {
         <pre>Cart amount: {amount}</pre>
       </div>
       <div>
-        <button type="button" onClick={()=>{addProduct()}}>Add to cart!</button>
-        <button type="button" onClick={()=>{removeProduct()}}>Remove from cart!</button>
-        <button type="button" onClick={()=>{alert()}}>Alert!</button>
-
+        <button type="button" onClick={()=>{addProduct(id)}}>Add to cart!</button>
+        <button type="button" onClick={()=>{removeProduct(id)}}>Remove from cart!</button>
       </div>
     </div>
   )

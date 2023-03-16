@@ -1,27 +1,59 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useMutation } from 'react-query';
 
 const CartContext = createContext();
+const cartAPI = process.env.REACT_APP_API + 'cart';
 
 export const CartProvider = ({children}) => {
-  console.log('provider updated!');
-  const [amount, setAmount] = useState(4);
+  const [cartData, setCartData] = useState({
+    items: [],
+    totalPrice: 0,
+  });
   
-  return (<CartContext.Provider value={{amount, setAmount}}>
+  return (<CartContext.Provider value={{cartData, setCartData}}>
     {children}
   </CartContext.Provider>)
 }
 
 export const useCart = () => {
-  const {amount, setAmount} = useContext(CartContext);
+  const {cartData, setCartData} = useContext(CartContext);
+  const {data: cartItems, isLoading, error, mutate} = useMutation('cartData', () => fetch(cartAPI).then(res => res.json()));
 
-  const addProduct = () => {
-    setAmount(amount + 1);
+  useEffect(() => {
+    mutate();
+  },[]);
+
+  useEffect(() => {
+    if(cartItems) {
+      setCartData({
+        ...cartData,
+        items: cartItems
+      });
+    }
+  },[cartItems])
+
+  const amount = cartData.items.length;
+
+  const addProduct = (productId) => {
+    /**@type {} */
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({id: productId}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+
+    fetch(cartAPI, options).then(res => res.json()).then(data => {
+      if(data === 'success') {
+        mutate();
+        console.log('item added');
+      };
+    });
   }
 
-  const removeProduct = () => {
-    if (amount > 0) {
-      setAmount(amount -1 );
-    }
+  const removeProduct = (productId) => {
+    //TODO
   }
 
   return {

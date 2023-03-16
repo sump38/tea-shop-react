@@ -1,0 +1,21 @@
+.cart {
+  width:40px;
+  height:40px;
+  line-height: 40px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.amount {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}

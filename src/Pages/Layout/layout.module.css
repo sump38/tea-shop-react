@@ -1,0 +1,25 @@
+.layoutContainer {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+
+
+.header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex:1;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #686b8f;
+  position: sticky;
+  padding:15px;
+}
+
+.mainTitle {
+  margin:0px;
+  padding:0px;
+}

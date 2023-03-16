@@ -6,10 +6,8 @@ import Pagination from "../../Components/Pagination/pagination";
 import ReactIcon from './logo192.png';
 
 const ProductPage = () => {
-  console.log('product page is running!');
   const {data: products, loading, error} = useProducts();
 
-  console.log('rendering page, data is', products);
 
   if(loading) {
     return (<div className={styles.loader}>
